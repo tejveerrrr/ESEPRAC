@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <style>
+    /* Styles for tabs */
+    .tab {
+      display: none;
+    }
+
+    /* Styles for navigation */
+    .tab-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tab-links li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .tab-links li a {
+      padding: 5px 10px;
+      display: block;
+      background: #ccc;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .tab-links li a:hover {
+      background: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <ul class="tab-links">
+    <li><a href="#aboutus">About Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#placement">Placement Data</a></li>
+  </ul>
+
+  <div class="tab" id="aboutus">
+    <h2>About Us</h2>
+    <p>This is the About Us page.</p>
+  </div>
+
+  <div class="tab" id="gallery">
+    <h2>Gallery</h2>
+    <p>This is the Gallery page.</p>
+  </div>
+
+  <div class="tab" id="contact">
+    <h2>Contact Us</h2>
+    <p>This is the Contact Us page.</p>
+  </div>
+
+  <div class="tab" id="placement">
+    <h2>Placement Data</h2>
+    <p>This is the Placement Data page.</p>
+  </div>
+
+  <script>
+    // JavaScript to handle tab switching
+    document.addEventListener("DOMContentLoaded", function() {
+      var tabLinks = document.querySelectorAll(".tab-links li a");
+      var tabs = document.querySelectorAll(".tab");
+
+      for (var i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].addEventListener("click", function(e) {
+          e.preventDefault();
+
+          var target = this.getAttribute("href").substring(1);
+          var targetTab = document.getElementById(target);
+
+          for (var j = 0; j < tabs.length; j++) {
+            tabs[j].style.display = "none";
+          }
+
+          targetTab.style.display = "block";
+        });
+      }
+
+      // Show the first tab by default
+      tabs[0].style.display = "block";
+    });
+  </script>
+</body>
+</html>
